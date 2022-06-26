@@ -102,7 +102,10 @@ theme: ayer
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/zzj2404/zzj2404.github.io
+  # example, https://github.com/hexojs/hexojs.github.io
+  branch: gh-pages
 
 # hexo-generator-searchdb
 search:
