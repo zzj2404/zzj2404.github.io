@@ -6,7 +6,7 @@
   <link href="https://zzj2404.github.io/atom.xml" rel="self"/>
   
   <link href="https://zzj2404.github.io/"/>
-  <updated>2023-03-06T12:42:58.860Z</updated>
+  <updated>2023-03-06T15:59:30.477Z</updated>
   <id>https://zzj2404.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://zzj2404.github.io/2023/03/06/%E5%BD%92%E4%B8%80%E5%8C%96/"/>
+    <id>https://zzj2404.github.io/2023/03/06/%E5%BD%92%E4%B8%80%E5%8C%96/</id>
+    <published>2023-03-06T15:48:39.472Z</published>
+    <updated>2023-03-06T15:59:30.477Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;归一化&quot;&gt;&lt;a href=&quot;#归一化&quot; class=&quot;headerlink&quot; title=&quot;归一化&quot;&gt;&lt;/a&gt;归一化&lt;/h1&gt;&lt;h2 id=&quot;MinMaxScaler&quot;&gt;&lt;a href=&quot;#MinMaxScaler&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据处理" scheme="https://zzj2404.github.io/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
