@@ -108,6 +108,63 @@
     
     
     <article
+  id="post-算法"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/03/18/%E7%AE%97%E6%B3%95/"
+    >utils</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/03/18/%E7%AE%97%E6%B3%95/" class="article-date">
+  <time datetime="2023-03-18T08:24:10.570Z" itemprop="datePublished">2023-03-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%B0%E5%BD%95/">记录</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="生成幂集"><a href="#生成幂集" class="headerlink" title="生成幂集"></a>生成幂集</h2><p>回溯，[0,1]的幂集都加上2再加自己就是[0,1,2]的幂集</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">subsets</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> [[]]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        result = subsets(n-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> result + [s + [n] <span class="keyword">for</span> s <span class="keyword">in</span> result]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(subsets(<span class="number">2</span>))</span><br><span class="line"><span class="comment"># [[], [1], [2], [1, 2]]</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="提取连续子串的起始终止位置"><a href="#提取连续子串的起始终止位置" class="headerlink" title="提取连续子串的起始终止位置"></a>提取连续子串的起始终止位置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">test_list = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">conti_sub_indexs</span>(<span class="params">l</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(l)</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">while</span> i &lt; n:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i,n): </span><br><span class="line">            <span class="keyword">if</span> l[j] != l[i]:</span><br><span class="line">                result.append([i,j-<span class="number">1</span>,l[i]])</span><br><span class="line">                i = j</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result.append([i,n-<span class="number">1</span>,l[i]])</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(conti_sub_indexs(test_list))</span><br><span class="line"><span class="comment"># [[0, 0, 0], [1, 4, 1], [5, 5, 2], [6, 6, 3], [7, 7, 4]]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="随机颜色"><a href="#随机颜色" class="headerlink" title="随机颜色"></a>随机颜色</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">randomcolor</span>():</span><br><span class="line">    colorArr = [<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;5&#x27;</span>,<span class="string">&#x27;6&#x27;</span>,<span class="string">&#x27;7&#x27;</span>,<span class="string">&#x27;8&#x27;</span>,<span class="string">&#x27;9&#x27;</span>,<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>,<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;F&#x27;</span>]</span><br><span class="line">    color = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">6</span>):</span><br><span class="line">        color += colorArr[random.randint(<span class="number">0</span>,<span class="number">14</span>)]</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;#&quot;</span>+color</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-归一化"
   class="article article-type-post"
   itemscope
@@ -139,8 +196,10 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="MinMaxScaler"><a href="#MinMaxScaler" class="headerlink" title="MinMaxScaler"></a>MinMaxScaler</h1><p>$$<br>\frac{data - min}{max-min}<br>$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 归一化到 [-1,1]</span></span><br><span class="line">scaler = MinMaxScaler(feature_range=(-<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于在一个列表中的单维度值，改变形状为多样本单维度</span></span><br><span class="line">values = values.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">values = scaler.fit_transform(values)</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
+  <h1 id="MinMaxScaler"><a href="#MinMaxScaler" class="headerlink" title="MinMaxScaler"></a>MinMaxScaler</h1><p>$$<br>X_{std}&#x3D;\frac{X - X_{min}}{X_{max}-X_{min}}<br>$$<br>$$<br>X_{scale}&#x3D;\frac{X_{std}}{X_{max}-X_{min}} + X_{min}<br>$$</p>
+<h1 id="MaxAbsScaler"><a href="#MaxAbsScaler" class="headerlink" title="MaxAbsScaler"></a>MaxAbsScaler</h1><p>$$<br>X_{scale}&#x3D;\frac{X}{X_{max}}<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler，MaxAbsScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 归一化到 [0,1]</span></span><br><span class="line">scaler = MinMaxScaler(feature_range=(<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 归一化到 [-1,1]</span></span><br><span class="line">scaler = MinMaxScaler(feature_range=(-<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于在一个列表中的单维度值，改变形状为多样本单维度</span></span><br><span class="line">values = values.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">values = scaler.fit_transform(values)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ 
       <!-- reward -->
       
     </div>

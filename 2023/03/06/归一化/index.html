@@ -85,7 +85,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">55</span>
+            <span class="post-count">93</span>
         </span>
     </span>
 
@@ -109,8 +109,10 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="MinMaxScaler"><a href="#MinMaxScaler" class="headerlink" title="MinMaxScaler"></a>MinMaxScaler</h1><p>$$<br>\frac{data - min}{max-min}<br>$$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 归一化到 [-1,1]</span></span><br><span class="line">scaler = MinMaxScaler(feature_range=(-<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于在一个列表中的单维度值，改变形状为多样本单维度</span></span><br><span class="line">values = values.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">values = scaler.fit_transform(values)</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
+  <h1 id="MinMaxScaler"><a href="#MinMaxScaler" class="headerlink" title="MinMaxScaler"></a>MinMaxScaler</h1><p>$$<br>X_{std}&#x3D;\frac{X - X_{min}}{X_{max}-X_{min}}<br>$$<br>$$<br>X_{scale}&#x3D;\frac{X_{std}}{X_{max}-X_{min}} + X_{min}<br>$$</p>
+<h1 id="MaxAbsScaler"><a href="#MaxAbsScaler" class="headerlink" title="MaxAbsScaler"></a>MaxAbsScaler</h1><p>$$<br>X_{scale}&#x3D;\frac{X}{X_{max}}<br>$$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler，MaxAbsScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 归一化到 [0,1]</span></span><br><span class="line">scaler = MinMaxScaler(feature_range=(<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 归一化到 [-1,1]</span></span><br><span class="line">scaler = MinMaxScaler(feature_range=(-<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于在一个列表中的单维度值，改变形状为多样本单维度</span></span><br><span class="line">values = values.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">values = scaler.fit_transform(values)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ 
       <!-- reward -->
       
     </div>
@@ -172,6 +174,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2023/03/18/%E7%AE%97%E6%B3%95/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            utils
+          
+        </div>
+      </a>
     
     
       <a href="/2023/03/06/hello-world/" class="article-nav-link">
