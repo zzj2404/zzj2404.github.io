@@ -45,10 +45,10 @@ $x_2$与$x_3$的依赖关系。这就体现了时序不变性。
 
 ![picture 6](../../images/dc1cf3d244b411b244a29a5e2b709c33151f98a14b3594dfc167ce965e2bfcd1.png)  
 1. $||\lambda\circ\theta_i||_1$为L1正则化项，目的是得到稀疏的Toeplitz矩阵
-[L1正则化和L2正则化的理解](https://blog.csdn.net/jinping_shi/article/details/52433975)
+[L1正则化和L2正则化的理解](https://blog.csdn.net/jinping_shi/article/details/52433975) 为什么稀疏
 2. $ll(X_t,\theta_i)$为多元高斯分布的对数似然，对多元高斯分布的f(x)取对数，可以推导出
 ![picture 7](../../images/4728e3f4e996904c944a7ea0b1f52a4b83f4e2927d2c5dfacdd90a8de0775b87.png) 
-3. temporal consistency项为时序一致项，当$X_t$和$X_{t-1}$属于不同的簇时取1，属于同一个簇时取0，相当于相邻的两个时间戳如果分配到不同的簇中就在loss中增加一个大小为$\beta$的惩罚项
+3. temporal consistency项为时序一致项，当$X_t$和$X_{t-1}$属于不同的簇时取1，属于同一个簇时取0，相当于相邻的两个时间戳如果分配到不同的簇中就在loss中增加一个大小为$\beta$的惩罚项, B=600
 
 # 问题求解
 使用EM算法的一个变体来交替地求解问题(1)中的参数，直到簇分配收敛
@@ -57,8 +57,8 @@ $x_2$与$x_3$的依赖关系。这就体现了时序不变性。
 
 ## 窗口分配
 分配X时固定参数$\theta$，此时问题(1)中的sparsity项大小不变，问题(1)变为
-![picture 8](../../images/35f1e495d626c62b5cfeba02d0d7940fd7ef5d2c227e35ca580eeef9aa74a00a.png)  
-
+![picture 8](../../images/35f1e495d626c62b5cfeba02d0d7940fd7ef5d2c227e35ca580eeef9aa74a00a.png)  \
+看一下$\theta$初始值\
 问题(3)求解可以通过动态规划来求解，等价于使用[维特比算法](https://www.zhihu.com/question/20136144)求下图中从左到右的最短路径，
 
 ![picture 9](../../images/c250a2bf3ecb1184ae1ddb94ebe63ede1c3af7a4bb6c34773040840d35a8e79c.png)  
